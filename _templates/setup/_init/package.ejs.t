@@ -24,4 +24,4 @@ skip_if: watchman
 		"getReleaseSHA1": "keytool -list -v -alias release -keystore ./android/app/release.keystore",
 		"lint": "eslint . --ext .js,.jsx,.ts,.tsx",
 		"test": "jest",
-		"build:ios": "react-native bundle --entry-file ./index.js --platform ios --bundle-output ios/main.jsbundle --assets-dest ios --dev=false"
+		"build:ios": "react-native bundle --entry-file ./index.js --platform ios --bundle-output ios/main.jsbundle --assets-dest ios --dev=false",
