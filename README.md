@@ -1,35 +1,34 @@
 # Get Started
 
-* [Initialization](#Initialization)
-* [Splash screen](#Splash-screen)
+- [Initialization](#Initialization)
+- [Splash screen](#Splash-screen)
 
 ## Initialization
-1) Initialize project
+
+1. Initialize project
+
 ```
-npx react-native init AwesomeTSProject --template react-native-template-typescript
+npx react-native init YourProjectName --template react-native-template-typescript
 ```
 
-2) Navigate to your project folder and paste this code
+2. Install hygen (if you don't have it)
+
 ```
-git clone git@github.com:chiefchief/temp.git && cp -rf ./temp/_templates ./ && cp -rf ./temp/src ./ && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && npm install enquirer --save-dev && node ./initialize.js  
+brew install hygen
 ```
 
-3) After commit install "husky" and add at the end of package.json
+3. Navigate to your project folder and paste this code
+
 ```
-npm install husky --save-dev
+git clone --branch v1 git@github.com:YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -rf ./temp/src ./ && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && yarn add enquirer && node ./initialize.js
+```
 
+If you have problems with git permissions try with https
 
-"husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  }
+```
+git clone --branch v1 https://github.com/YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -rf ./temp/src ./ && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && yarn add enquirer && node ./initialize.js
 ```
 
 ## Splash screen
-[Use this library](https://github.com/zoontek/react-native-bootsplash)
+
+[Use this library (react-native-bootsplash)](https://github.com/zoontek/react-native-bootsplash)
