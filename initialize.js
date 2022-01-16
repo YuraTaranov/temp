@@ -6,12 +6,12 @@ const { name } = require("./app.json");
   execSync("git init", { stdio: "inherit" });
 
   execSync(
-    "yarn add -D @trivago/prettier-plugin-sort-imports @types/lodash babel-plugin-module-resolver @commitlint/config-conventional @commitlint/cli @types/react-native-vector-icons",
+    "yarn add -D @trivago/prettier-plugin-sort-imports @types/lodash babel-plugin-module-resolver @commitlint/config-conventional @commitlint/cli @types/react-native-vector-icons @types/react-native-snap-carousel @types/uuid @types/validator",
     { stdio: "inherit" }
   );
 
   execSync(
-    "yarn add axios lodash react-native-modal @react-native-async-storage/async-storage i18next react-i18next react-native-vector-icons @react-navigation/native @react-navigation/stack @react-navigation/elements react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context react-native-fast-image",
+    "yarn add axios lodash react-native-bootsplash react-native-modal @react-native-async-storage/async-storage i18next react-i18next react-native-vector-icons @react-navigation/native @react-navigation/stack @react-navigation/bottom-tabs react-native-reanimated react-native-screens react-native-safe-area-context react-native-fast-image @react-native-community/checkbox moment react-native-device-info react-native-keyboard-aware-scroll-view react-native-permissions react-native-snap-carousel react-native-tab-view form-data uuid @react-native-community/netinfo @react-native-community/datetimepicker validator",
     { stdio: "inherit" }
   );
 
