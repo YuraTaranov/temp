@@ -5,7 +5,7 @@ import {takeLatest, put, call, select} from 'redux-saga/effects';
 import {httpGet, httpPost, navigate, errorHandler} from '@services';
 import {urls} from '@constants';
 // import { Service } from '@httpServices'
-import {TGlobalState, IAction} from '@types';
+import {TGlobalState, IGet<%=h.changeCase.pascal(name)%>, ISet<%=h.changeCase.pascal(name)%>, IAction} from '@types';
 
 type TData = TGlobalState['data'];
 
@@ -29,8 +29,8 @@ export default (state = initialstate, action: any) => {
   }
 };
 
-export const get<%=h.changeCase.pascal(name)%> => ({type: GET_<%=h.changeCase.constant(name)%>});
-export const set<%=h.changeCase.pascal(name)%>: (data: ISetData['data']) => ISetData = (data) => ({data, type: SET_<%=h.changeCase.constant(name)%>});
+export const get<%=h.changeCase.pascal(name)%>: () => IGet<%=h.changeCase.pascal(name)%> = () => ({type: GET_<%=h.changeCase.constant(name)%>});
+export const set<%=h.changeCase.pascal(name)%>: (data: ISet<%=h.changeCase.pascal(name)%>['data']) => ISet<%=h.changeCase.pascal(name)%> = (data) => ({data, type: SET_<%=h.changeCase.constant(name)%>});
 
 export const reset<%=h.changeCase.pascal(name)%> = () => ({type: RESET_<%=h.changeCase.constant(name)%>});
 
