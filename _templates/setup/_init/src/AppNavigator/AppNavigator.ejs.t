@@ -1,5 +1,5 @@
 ---
-to: src/_AppNavigator/AppNavigator.tsx
+to: src/AppNavigator/AppNavigator.tsx
 unless_exists: true
 ---
 import React from 'react';

@@ -1,21 +1,41 @@
 ---
 to: src/screens/<%=h.changeCase.pascal(name)%>/<%=h.changeCase.pascal(name)%>.tsx
 ---
-import React from 'react';
-import {useTranslation} from '@hooks';
-import {View, Text} from '@components';
-import styles from './styles';
+import React from 'react'
+import { useEffect, useState, useCallback, useMemo, useTranslation } from '@hooks'
+import { View, Text, Image, TouchableOpacity } from '@components'
+import {connect} from 'react-redux';
+import {navigate} from '@services';
+import styles from './styles'
+import {Dispatch} from 'redux';
+import type {TGlobalState} from '@types';
 
-const <%= h.changeCase.pascal(name) %>: React.FC<TProps> = () => {
-  const {t} = useTranslation();
+// type TData = TGlobalState['data'];
 
-  return (
-    <View style={styles.container}>
-      <Text><%= h.changeCase.pascal(name) %>Screen</Text>
-    </View>
-  );
-};
+type TProps = {
+	
+}
 
-export default <%= h.changeCase.pascal(name) %>;
+const <%= h.changeCase.pascal(name) %>: React.FC<TProps> = ({}) => {
+	const { t } = useTranslation()
 
-type TProps = {};
+	return (
+	<View style={styles.container}>
+		<Text>
+			<%= h.changeCase.pascal(name) %>Screen
+		</Text>
+	</View>
+	)
+}
+
+const mapStateToProps = (state: TGlobalState) => ({
+	// data: state.data
+});
+
+const mapDispatchToProps = (
+  dispatch: Dispatch<IGetData>,
+) => ({
+  // getData: (arg: IGetData['data']) => dispatch(getData(arg)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(<%= h.changeCase.pascal(name) %>);

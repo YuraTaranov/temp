@@ -1,41 +1,54 @@
 ---
 to: src/reducers/<%=h.changeCase.camelCase(name)%>.ts
 ---
-import {takeLatest} from 'redux-saga/effects';
-import {Initial<%=h.changeCase.pascal(name)%>} from './__proto__';
-import {AnyAction} from 'redux';
+import {takeLatest, put, call, select} from 'redux-saga/effects';
+import {httpGet, httpPost, navigate, errorHandler} from '@services';
+import {urls} from '@constants';
+// import { Service } from '@httpServices'
+import {TGlobalState, IAction} from '@types';
 
-enum <%=h.changeCase.pascal(name)%>Types {
-  GET_<%=h.changeCase.constant(name)%> = '[<%=h.changeCase.camelCase(name)%>] GET_<%=h.changeCase.constant(name)%>',
-  SET_<%=h.changeCase.constant(name)%> = '[<%=h.changeCase.camelCase(name)%>] SET_<%=h.changeCase.constant(name)%>',
-  RESET_<%=h.changeCase.constant(name)%> = '[<%=h.changeCase.camelCase(name)%>] RESET_<%=h.changeCase.constant(name)%>',
-}
+type TData = TGlobalState['data'];
 
-const initialstate = new Initial<%=h.changeCase.pascal(name)%>();
+const GET_<%=h.changeCase.constant(name)%> = '[<%=h.changeCase.camelCase(name)%>] GET_<%=h.changeCase.constant(name)%>';
+const SET_<%=h.changeCase.constant(name)%> = '[<%=h.changeCase.camelCase(name)%>] SET_<%=h.changeCase.constant(name)%>';
 
-export default (state = initialstate, action: AnyAction) => {
+const RESET_<%=h.changeCase.constant(name)%> = '[<%=h.changeCase.camelCase(name)%>] RESET_<%=h.changeCase.constant(name)%>';
+
+const initialstate: TData = {
+	data: [],
+};
+
+export default (state = initialstate, action: any) => {
   switch (action.type) {
-    case <%=h.changeCase.pascal(name)%>Types.SET_<%=h.changeCase.constant(name)%>:
-      return new Initial<%=h.changeCase.pascal(name)%>({...state, data: action.data});
-    case <%=h.changeCase.pascal(name)%>Types.RESET_<%=h.changeCase.constant(name)%>:
+    case SET_<%=h.changeCase.constant(name)%>:
+      return Object.assign({}, {...state, data: action.data});
+    case RESET_<%=h.changeCase.constant(name)%>:
       return initialstate;
     default:
       return state;
   }
 };
 
-export const get<%=h.changeCase.pascal(name)%> = () => ({type: <%=h.changeCase.pascal(name)%>Types.GET_<%=h.changeCase.constant(name)%>});
-export const set<%=h.changeCase.pascal(name)%> = (data: any) => ({data, type: <%=h.changeCase.pascal(name)%>Types.SET_<%=h.changeCase.constant(name)%>});
-export const reset<%=h.changeCase.pascal(name)%> = () => ({type: <%=h.changeCase.pascal(name)%>Types.RESET_<%=h.changeCase.constant(name)%>});
+export const get<%=h.changeCase.pascal(name)%> => ({type: GET_<%=h.changeCase.constant(name)%>});
+export const set<%=h.changeCase.pascal(name)%>: (data: ISetData['data']) => ISetData = (data) => ({data, type: SET_<%=h.changeCase.constant(name)%>});
+
+export const reset<%=h.changeCase.pascal(name)%> = () => ({type: RESET_<%=h.changeCase.constant(name)%>});
 
 export function* watch<%=h.changeCase.pascal(name)%>() {
-  yield takeLatest(<%=h.changeCase.pascal(name)%>Types.GET_<%=h.changeCase.constant(name)%>, get<%=h.changeCase.pascal(name)%>Async);
+  yield takeLatest(GET_<%=h.changeCase.constant(name)%>, get<%=h.changeCase.pascal(name)%>Async);
 }
 
-export function* get<%=h.changeCase.pascal(name)%>Async() {
-  // const { accessToken } = yield select(state => state.profile)
+export function* get<%=h.changeCase.pascal(name)%>Async(action: IAction) {
+  // const state: TGlobalState = yield select(state => state)
   try {
+    // const {data}: IData[] = yield call(() => Service.method(args));
+    // if (data.data.length) {
+      // yield put(set<%=h.changeCase.pascal(name)%>(data.data));
+      // navigate('Route');
+    // }
   } catch (e) {
-    console.log(e, 'get<%=h.changeCase.pascal(name)%>Async ERROR');
+	errorHandler(e, 'get<%=h.changeCase.pascal(name)%>Async')
+  } finally {
+	  
   }
 }
