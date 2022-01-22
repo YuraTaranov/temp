@@ -3,13 +3,11 @@ to: src/reducers/index.ts
 unless_exists: true
 ---
 import {combineReducers} from 'redux';
-import _global from './_global';
-import _persisted from './_persisted';
+import global from './global';
 // ADD IMPORT
 
 const rootReducer = combineReducers({
-  _global,
-  _persisted,
+  global,
   // ADD NEW REDUCER
 });
 
