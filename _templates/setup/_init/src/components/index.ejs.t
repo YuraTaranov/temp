@@ -2,18 +2,47 @@
 to: src/components/index.ts
 unless_exists: true
 ---
-export {View, FlatList, ScrollView, TouchableOpacity, Keyboard, StatusBar} from 'react-native';
+export {
+  ActivityIndicator,
+  Alert,
+  FlatList,
+  SectionList,
+  Keyboard,
+  Linking,
+  PermissionsAndroid,
+  Platform,
+  RefreshControl,
+  SafeAreaView,
+  ScrollView,
+  Share,
+  StatusBar,
+  StyleSheet,
+  Switch,
+  TouchableHighlight,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  ImageBackground,
+  View,
+} from 'react-native';
 
 // MODULES
 export {default as Modal} from 'react-native-modal';
 export {default as Image} from 'react-native-fast-image';
 
+// BEHAVIOR
+
+// BUTTONS
+
 // CONTROL
 
 // DATAVIEW
 
+// INPUTS
+
 // LAYOUT
 export {KeyboardAvoidingView} from './layout/KeyboardAvoidingView/KeyboardAvoidingView';
+
+// MODAL
 
 // NAVIGATION
 

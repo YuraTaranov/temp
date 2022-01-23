@@ -6,10 +6,18 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {
-  Start,
+  Onboarding,
+  SignIn,
+  Home,
   // ADD NEW SCREEN
 } from '@screens';
 import {navigationRef, onStateChange} from '@services';
+import {connect} from 'react-redux';
+import {TGlobalState} from '@types';
+
+type TProps = {
+  global: TGlobalState['global'];
+};
 
 const RootStack = createStackNavigator();
 const AuthStack = createStackNavigator();
@@ -18,7 +26,7 @@ const HomeStack = createStackNavigator();
 const AuthNavigator: React.FC = () => {
   return (
     <AuthStack.Navigator>
-      <AuthStack.Screen name="Start" component={Start} />
+      <AuthStack.Screen name="SignIn" component={SignIn} />
     </AuthStack.Navigator>
   );
 };
@@ -26,16 +34,23 @@ const AuthNavigator: React.FC = () => {
 const HomeNavigator: React.FC = () => {
   return (
     <HomeStack.Navigator>
-      <HomeStack.Screen name="Start" component={Start} />
+      <HomeStack.Screen name="Home" component={Home} />
     </HomeStack.Navigator>
   );
 };
 
-export const AppNavigator: React.FC = () => {
+const AppNavigator: React.FC<TProps> = ({global}) => {
   return (
     <NavigationContainer ref={navigationRef} onStateChange={onStateChange}>
-      <RootStack.Navigator screenOptions={{headerShown: false}}>
-        {false ? (
+      <RootStack.Navigator screenOptions={{headerShown: false, gestureEnabled: false}}>
+        {global.firstOpenApp ? (
+		 <RootStack.Screen
+              name={'Onboarding'}
+              component={Onboarding}
+              options={{headerShown: false}}
+		  />
+		) :
+		 global.token ? (
           <RootStack.Screen name="HomeNavigator" component={HomeNavigator} />
         ) : (
           <RootStack.Screen name="AuthNavigator" component={AuthNavigator} />
@@ -44,3 +59,9 @@ export const AppNavigator: React.FC = () => {
     </NavigationContainer>
   );
 };
+
+const mapStateToProps = (state: TGlobalState) => ({
+  global: state.global,
+});
+
+export default connect(mapStateToProps)(AppNavigator);
