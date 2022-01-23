@@ -14,5 +14,6 @@ skip_if: assets
       "@reducers/*": ["src/reducers/*"],
       "@screens": ["src/screens/index"],
       "@services": ["src/services/index"],
-      "@types": ["src/types/index"]
+      "@types": ["src/types/index"],
+	  "@httpServices": ["src/services/http/services/index"]
     },

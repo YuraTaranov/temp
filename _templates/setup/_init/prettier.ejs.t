@@ -4,7 +4,7 @@ force: true
 ---
 module.exports = {
   bracketSpacing: false,
-  jsxBracketSameLine: false,
+  jsxBracketSameLine: true,
   singleQuote: true,
   trailingComma: 'all',
   arrowParens: 'avoid',
