@@ -16,6 +16,7 @@ export default i18n.use(initReactI18next).init({
   },
   lng: defaultLanguage,
   fallbackLng: Languages.EN,
+  compatibilityJSON: 'v2',
   react: {
     nsMode: 'default',
   },
@@ -23,6 +24,6 @@ export default i18n.use(initReactI18next).init({
     escapeValue: false, // react already safes from xss
   },
   nsSeparator: false,
-  keySeparator: false,
+  keySeparator: '.',
   debug: true, // DISABLE EIF NO NEED LOGS
 });

@@ -9,7 +9,7 @@ export type TGenerateOptions = {
   params?: any;
 };
 
-export type TFormatResponse = {
+export interface IFormatResponse {
   data: any;
   status: number;
   statusText: string;

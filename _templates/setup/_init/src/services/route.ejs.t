@@ -2,47 +2,42 @@
 to: src/services/route.ts
 unless_exists: true
 ---
-import {NavigationState, PartialState, createNavigationContainerRef} from '@react-navigation/native';
+import React from 'react';
+import {NavigationState, PartialState} from '@react-navigation/native';
 import {StackActions} from '@react-navigation/routers';
-
-// NEED TO FIX navigate types
+import {NavigationContainerRef} from '@react-navigation/core';
 
 export let currentRouteName: string = '';
 
-export const navigationRef = createNavigationContainerRef();
+export const navigationRef: React.RefObject<NavigationContainerRef> =
+  React.createRef();
 export const onStateChange: TOnStateChange = state => {
   currentRouteName = parseRoute(state);
 };
 
 export function navigate(name: string, params?: any) {
-  if (navigationRef.isReady()) {
-    navigationRef.navigate(name as never, params as never);
-  }
+	navigationRef?.current?.navigate(name, params);
 }
 export function goBack() {
-  if (navigationRef.isReady()) {
-    navigationRef.goBack();
-  }
+  navigationRef?.current?.goBack();
 }
 export function reset(name: string, params?: any) {
-  if (navigationRef.isReady()) {
-    navigationRef.reset({routes: [{name, params}]});
-  }
+  navigationRef?.current?.reset({routes: [{name, params}]});
+}
+export function resetSeveral(routes: any) {
+  navigationRef?.current?.reset({routes});
 }
 export function push(name: string, params?: any) {
-  if (navigationRef.isReady()) {
-    navigationRef.dispatch(StackActions.push(name, params));
-  }
+  navigationRef?.current?.dispatch(StackActions.push(name, params));
 }
-export function pop(count?: number) {
-  if (navigationRef.isReady()) {
-    navigationRef.dispatch(StackActions.pop(count));
-  }
+export function replace(name: string, params?: any) {
+  navigationRef?.current?.dispatch(StackActions.replace(name, params));
+}
+export function pop(index: number) {
+  navigationRef?.current?.dispatch(StackActions.pop(index));
 }
 export function popToTop() {
-  if (navigationRef.isReady()) {
-    navigationRef.dispatch(StackActions.popToTop());
-  }
+  navigationRef?.current?.dispatch(StackActions.popToTop());
 }
 
 export const parseRoute: TParseRoute = initialState => {
@@ -55,5 +50,9 @@ export const parseRoute: TParseRoute = initialState => {
   return name;
 };
 
-type TOnStateChange = ((state: NavigationState | undefined) => void) | undefined;
-type TParseRoute = (state: NavigationState | PartialState<NavigationState> | undefined) => string;
+type TOnStateChange =
+  | ((state: NavigationState | undefined) => void)
+  | undefined;
+type TParseRoute = (
+  state: NavigationState | PartialState<NavigationState> | undefined,
+) => string;
