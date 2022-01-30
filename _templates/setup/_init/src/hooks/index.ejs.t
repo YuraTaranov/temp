@@ -32,10 +32,6 @@ export {
   useSafeArea, // const { top, right, bottom, left } = useSafeArea()
 } from 'react-native-safe-area-context';
 
-export {
-  useHeaderHeight, // HeaderHeight
-} from '@react-navigation/elements';
-
 // https://react.i18next.com/latest/usetranslation-hook
 export {
   useTranslation, // const { t, i18n } = useTranslation();
