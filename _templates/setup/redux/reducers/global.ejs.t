@@ -1,7 +1,7 @@
 import {Alert} from '@components';
 import {call, put, takeLatest} from '@redux-saga/core/effects';
 import {all, select} from 'redux-saga/effects';
-import {TGlobalState} from '@types';
+import {TGlobalState, TSetLangAsync} from '@types';
 import {httpGet, httpPost, navigate, errorHandler} from '@services';
 
 const INITIAL = '[global] INITIAL';
@@ -78,7 +78,7 @@ export function* logOutAsync() {
   console.log('logout');
 }
 
-export function* setLangAsync(action: any) {
+export function* setLangAsync(action: TSetLangAsync) {
   const lang = action.data
   yield i18next.changeLanguage(lang);
   yield put(setLang(lang));
