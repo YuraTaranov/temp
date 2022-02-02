@@ -20,13 +20,13 @@ brew install hygen
 3. Navigate to your project folder and paste this code
 
 ```
-git clone --branch v1 git@github.com:YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -rf ./temp/src ./ && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && yarn add enquirer && node ./initialize.js
+git clone --branch v1 git@github.com:YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && yarn add enquirer && node ./initialize.js
 ```
 
 If you have problems with git permissions try with https
 
 ```
-git clone --branch v1 https://github.com/YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -rf ./temp/src ./ && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && yarn add enquirer && node ./initialize.js
+git clone --branch v1 https://github.com/YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && yarn add enquirer && node ./initialize.js
 ```
 
 ## Splash screen

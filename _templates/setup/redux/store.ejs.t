@@ -1,3 +1,7 @@
+---
+to: src/store.tsx
+unless_exists: true
+---
 import {createStore, applyMiddleware} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';

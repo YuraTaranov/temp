@@ -1,3 +1,7 @@
+---
+to: src/types/navigation.ts
+unless_exists: true
+---
 import {RouteProp} from '@react-navigation/native';
 
 export type RootStackParamList = {

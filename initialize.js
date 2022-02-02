@@ -30,9 +30,12 @@ const { name } = require("./app.json");
     execSync("yarn add -D redux-devtools-extension @types/react-redux", {
       stdio: "inherit"
     });
-    execSync("yarn add redux redux-saga react-redux redux-persist", {
-      stdio: "inherit"
-    });
+    execSync(
+      "yarn add redux redux-saga react-redux redux-persist redux-persist/integration/react",
+      {
+        stdio: "inherit"
+      }
+    );
   }
 
   execSync(`hygen setup ${select}`, { stdio: "inherit" });

@@ -1,3 +1,7 @@
+---
+to: src/reducers/global.ts
+unless_exists: true
+---
 import {Alert} from '@components';
 import {call, put, takeLatest} from '@redux-saga/core/effects';
 import {all, select} from 'redux-saga/effects';

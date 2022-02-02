@@ -1,5 +1,6 @@
 ---
+inject: true
 to: src/screens/index.ts
-unless_exists: true
+append: true
 ---
 export {default as Onboarding} from './Onboarding/Onboarding';

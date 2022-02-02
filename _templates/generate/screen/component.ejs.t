@@ -33,7 +33,7 @@ const mapStateToProps = (state: TGlobalState) => ({
 });
 
 const mapDispatchToProps = (
-  dispatch: Dispatch<IGetData>,
+  // dispatch: Dispatch<IGetData>,
 ) => ({
   // getData: (arg: IGetData['data']) => dispatch(getData(arg)),
 });

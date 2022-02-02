@@ -3,7 +3,7 @@ to: src/services/http/http.ts
 unless_exists: true
 ---
 import axios from 'axios';
-import {TGenerateOptions, TFormatResponse} from '@types';
+import {TGenerateOptions, IFormatResponse} from '@types';
 import storage from '../../store';
 
 const baseURL = 'https://dev';
