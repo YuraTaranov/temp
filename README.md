@@ -13,8 +13,16 @@ npx react-native init YourProjectName --template react-native-template-typescrip
 
 2. Install hygen (if you don't have it)
 
+(on mac)
+
 ```
 brew install hygen
+```
+
+(on linux or windows)
+
+```
+sudo npm i -g hygen
 ```
 
 3. Navigate to your project folder and paste this code
