@@ -2,28 +2,28 @@
 to: src/services/notifications/notificationsHandler.ts
 unless_exists: true
 ---
-import {Platform} from 'react-native';
-import {FirebaseMessagingTypes} from '@react-native-firebase/messaging';
-import PushNotificationIOS from '@react-native-community/push-notification-ios';
-import PushNotification from 'react-native-push-notification';
-import { navigate } from '@services';
+// import {Platform} from 'react-native';
+// import {FirebaseMessagingTypes} from '@react-native-firebase/messaging';
+// import PushNotificationIOS from '@react-native-community/push-notification-ios';
+// import PushNotification from 'react-native-push-notification';
+// import { navigate } from '@services';
 // import storage from '../../store';
 // import { setNotifications, getNotifications } from '@reducers/notifications';
 // import { TNotification } from '@types';
 
-type TRemoteMessage = FirebaseMessagingTypes.RemoteMessage | null;
+// type TRemoteMessage = FirebaseMessagingTypes.RemoteMessage | null;
 
 // const notifications: TSubjectNotification[] = storage?.store?.getState().notifications;
 // const dispatchNotifications = (notifications: TNotification[]) => storage?.store?.dispatch(setNotifications(notifications))
 // const getNotificationsList = () => storage?.store?.dispatch(getNotifications())
 
-export const notificationsHandler = async (remoteMessage: TRemoteMessage) => {
-  if (!!remoteMessage) {
-	PushNotification.removeAllDeliveredNotifications();
-    if (Platform.OS === 'ios') {
-        PushNotificationIOS.removeAllDeliveredNotifications();
-      	PushNotificationIOS.setApplicationIconBadgeNumber(0);
-    }
+// export const notificationsHandler = async (remoteMessage: TRemoteMessage) => {
+  // if (!!remoteMessage) {
+	// PushNotification.removeAllDeliveredNotifications();
+    // if (Platform.OS === 'ios') {
+       // PushNotificationIOS.removeAllDeliveredNotifications();
+      	// PushNotificationIOS.setApplicationIconBadgeNumber(0);
+    // }
 	  // navigate('TypeNotifications', {needRefresh: true})
 	  // getNotificationsList()
 
@@ -52,6 +52,6 @@ export const notificationsHandler = async (remoteMessage: TRemoteMessage) => {
 	// 	    )
 	// 	 }
 	// })
-  }
-};
+  // }
+// };
 

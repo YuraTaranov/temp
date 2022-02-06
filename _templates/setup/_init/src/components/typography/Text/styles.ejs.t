@@ -2,10 +2,11 @@
 to: src/components/typography/Text/styles.ts
 unless_exists: true
 ---
-import {makeStyles} from '@services';
+import {StyleSheet} from '@components';
+import {colors, fonts} from '@constants';
 
-export const useStyles = makeStyles(theme => ({
-  defaultText: {
-    color: theme.text,
+export default StyleSheet.create({
+  container: {
+    flex: 1,
   },
-}));
+});
