@@ -6,13 +6,15 @@ import {Alert} from '@components';
 import {call, put, takeLatest} from '@redux-saga/core/effects';
 import {all, select} from 'redux-saga/effects';
 import {TGlobalState, TSetLangAsync} from '@types';
-import {httpGet, httpPost, navigate, errorHandler} from '@services';
+import {httpGet, httpPost, navigate} from '@services';
+import {errorHandler} from '@helpers';
+import i18next from 'i18next';
 
 const INITIAL = '[global] INITIAL';
 const SET_FIRST_OPEN_APP = '[global] SET_FIRST_OPEN_APP';
 const SET_TOKEN = '[global] SET_TOKEN';
 const SET_LANG = '[global] SET_LANG';
-const LOG_OUT = '[global] LOG_OUT',
+const LOG_OUT = '[global] LOG_OUT';
 const RESET_GLOBAL = '[global] RESET_GLOBAL';
 
 type TGlobal = TGlobalState['global'];

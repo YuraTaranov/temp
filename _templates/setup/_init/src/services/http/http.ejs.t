@@ -59,7 +59,7 @@ const sendRequest = async ({
 };
 
 const generateOptions = ({method, url, data, params}: TGenerateOptions) => {
-  const global: any = storage?.store?.getState()._global || null;
+  const global: any = storage?.store?.getState().global || null;
   const token = global.token || '';
   const defaultHeaders = {
     'Content-Type': 'application/json',

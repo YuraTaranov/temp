@@ -1,16 +1,15 @@
 ---
-to: src/components/typography/Text/Text.tsx
+to: src/components/typography/Text/index.tsx
 unless_exists: true
 ---
 import React from 'react';
 import {Text as RNText, TextProps} from 'react-native';
-import {useStyles} from './styles';
+import styles from './styles';
 
 const Text: React.FC<TextProps> = ({children, style, ...otherProps}) => {
-  const {styles} = useStyles();
   
   return (
-    <RNText style={[styles.defaultText, style]} {...otherProps}>
+    <RNText style={[styles.container, style]} {...otherProps}>
       {children}
     </RNText>
   );

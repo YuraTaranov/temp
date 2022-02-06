@@ -8,6 +8,6 @@ import {ILoginRequest, ILoginResponse} from './types';
 
 export class AuthService {
   public async signIn(data: ILoginRequest): Promise<ILoginResponse> {
-    return await httpPost(`${urls.login}`, {phoneNumber, password});
+    return await httpPost(`${urls.login}`, data);
   }
 }

@@ -7,12 +7,12 @@ import {StatusBar} from 'react-native';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import AppNavigator from './AppNavigator/AppNavigator';
-import {store, persistor} from './store';
+import storage from './store';
 
 export const App: React.FC = () => {
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+    <Provider store={storage.store}>
+      <PersistGate loading={null} persistor={storage.persistor}>
           <StatusBar backgroundColor={'transparent'} barStyle={'dark-content'} translucent={true} />
           <AppNavigator />
       </PersistGate>
