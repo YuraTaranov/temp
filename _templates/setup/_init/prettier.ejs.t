@@ -22,6 +22,7 @@ module.exports = {
     '@screens',
     '@services',
     '@types',
+    '@httpServices',
     './',
   ],
 };

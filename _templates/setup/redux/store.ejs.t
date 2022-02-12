@@ -9,7 +9,6 @@ import reducers from './reducers';
 import rootSaga from './reducers/sagas';
 import {persistStore, persistReducer} from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
-import reduxFlipper from 'redux-flipper';
 
 const sagaMiddleware = createSagaMiddleware();
 

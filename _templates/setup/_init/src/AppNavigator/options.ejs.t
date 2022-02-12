@@ -4,15 +4,12 @@ unless_exists: true
 ---
 import styles from './styles';
 import {colors} from '@constants';
-import {StackNavigationOptions} from '@react-navigation/stack';
+import {NativeStackNavigationOptions} from '@react-navigation/native-stack';
 
-export const defaultStackOptions: StackNavigationOptions = {
+export const defaultStackOptions: NativeStackNavigationOptions = {
   headerBackTitleVisible: false,
   headerStyle: styles.headerStyle,
   headerTintColor: colors.white_FFFFFF,
   headerTitleAlign: 'center',
   headerTitleStyle: styles.headerTitleStyle,
-  headerLeftContainerStyle: styles.headerLeftContainerStyle,
-  headerRightContainerStyle: styles.headerRightContainerStyle,
-  cardStyle: styles.cardStyle,
 };

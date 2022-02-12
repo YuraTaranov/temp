@@ -4,40 +4,21 @@ unless_exists: true
 ---
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
-  Onboarding,
-  SignIn,
-  Home,
-  // ADD NEW SCREEN
+  Onboarding, // ADD NEW SCREEN
 } from '@screens';
 import {navigationRef, onStateChange} from '@services';
 import {connect} from 'react-redux';
 import {TGlobalState} from '@types';
+import {AuthNavigator} from './stacks/authNavigator';
+import {HomeNavigator} from './stacks/homeNavigator';
 
 type TProps = {
   global: TGlobalState['global'];
 };
 
-const RootStack = createStackNavigator();
-const AuthStack = createStackNavigator();
-const HomeStack = createStackNavigator();
-
-const AuthNavigator: React.FC = () => {
-  return (
-    <AuthStack.Navigator>
-      <AuthStack.Screen name="SignIn" component={SignIn} />
-    </AuthStack.Navigator>
-  );
-};
-
-const HomeNavigator: React.FC = () => {
-  return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen name="Home" component={Home} />
-    </HomeStack.Navigator>
-  );
-};
+const RootStack = createNativeStackNavigator();
 
 const AppNavigator: React.FC<TProps> = ({global}) => {
   return (
