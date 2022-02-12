@@ -9,9 +9,9 @@ module.exports = [
     name: "folder",
     message: "Select screen folder...",
     choices: [
-      "Start",
-      "Home",
-      "SignIn"
+      "Onboarding",
+      "SignIn",
+      "Home"
       //ADD MORE SCREENS
     ]
   }
