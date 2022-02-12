@@ -36,13 +36,13 @@ git clone --branch v1 git@github.com:YuraTaranov/temp.git && cp -rf ./temp/_temp
 If you have problems with git permissions try with https
 
 ```
-git clone --branch v1 https://github.com/YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && yarn add enquirer && node ./initialize.js
+git clone --branch v1 https://github.com/YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -rf ./temp/src/assets ./src/assets && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && yarn add enquirer && node ./initialize.js
 ```
 
 ANDROID
 
 ```
-git clone --branch android https://github.com/YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && yarn add enquirer && node ./initialize.js
+git clone --branch android https://github.com/YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -rf ./temp/src/assets ./src/assets && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && yarn add enquirer && node ./initialize.js
 ```
 
 ## Splash screen
