@@ -16,7 +16,6 @@ export {
   ScrollView,
   Share,
   StatusBar,
-  StyleSheet,
   Switch,
   TouchableHighlight,
   TouchableOpacity,
