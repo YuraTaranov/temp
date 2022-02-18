@@ -19,10 +19,16 @@ npx react-native init YourProjectName --template react-native-template-typescrip
 brew install hygen
 ```
 
-(on linux or windows)
+(on linux)
 
 ```
 sudo npm i -g hygen
+```
+
+(on windows)
+
+```
+npm i -g hygen
 ```
 
 3. Navigate to your project folder and paste this code
