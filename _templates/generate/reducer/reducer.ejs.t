@@ -1,54 +1,64 @@
 ---
 to: src/reducers/<%=h.changeCase.camelCase(name)%>.ts
 ---
-import {takeLatest, put, call, select} from 'redux-saga/effects';
-import {httpGet, httpPost, navigate, errorHandler} from '@services';
-import {urls} from '@constants';
-// import { Service } from '@httpServices'
-import {TGlobalState, IGet<%=h.changeCase.pascal(name)%>, ISet<%=h.changeCase.pascal(name)%>, IAction} from '@types';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { EDataLoadingStatus, TGlobalState } from "@types"
+import {httpGet, httpPost, httpDel, httpPut} from '@services';
 
-type TData = TGlobalState['data'];
+type TInitialState = TGlobalState['<%=h.changeCase.camelCase(name)%>']
 
-const GET_<%=h.changeCase.constant(name)%> = '[<%=h.changeCase.camelCase(name)%>] GET_<%=h.changeCase.constant(name)%>';
-const SET_<%=h.changeCase.constant(name)%> = '[<%=h.changeCase.camelCase(name)%>] SET_<%=h.changeCase.constant(name)%>';
-
-const RESET_<%=h.changeCase.constant(name)%> = '[<%=h.changeCase.camelCase(name)%>] RESET_<%=h.changeCase.constant(name)%>';
-
-const initialstate: TData = {
+const initialState: TInitialState = {
 	data: [],
-};
-
-export default (state = initialstate, action: any) => {
-  switch (action.type) {
-    case SET_<%=h.changeCase.constant(name)%>:
-      return Object.assign({}, {...state, data: action.data});
-    case RESET_<%=h.changeCase.constant(name)%>:
-      return initialstate;
-    default:
-      return state;
-  }
-};
-
-export const get<%=h.changeCase.pascal(name)%>: () => IGet<%=h.changeCase.pascal(name)%> = () => ({type: GET_<%=h.changeCase.constant(name)%>});
-export const set<%=h.changeCase.pascal(name)%>: (data: ISet<%=h.changeCase.pascal(name)%>['data']) => ISet<%=h.changeCase.pascal(name)%> = (data) => ({data, type: SET_<%=h.changeCase.constant(name)%>});
-
-export const reset<%=h.changeCase.pascal(name)%> = () => ({type: RESET_<%=h.changeCase.constant(name)%>});
-
-export function* watch<%=h.changeCase.pascal(name)%>() {
-  yield takeLatest(GET_<%=h.changeCase.constant(name)%>, get<%=h.changeCase.pascal(name)%>Async);
+	status: EDataLoadingStatus.IDLE,
+	error: null
 }
 
-export function* get<%=h.changeCase.pascal(name)%>Async(action: IAction) {
-  // const state: TGlobalState = yield select(state => state)
-  try {
-    // const {data}: IData[] = yield call(() => Service.method(args));
-    // if (data.data.length) {
-      // yield put(set<%=h.changeCase.pascal(name)%>(data.data));
-      // navigate('Route');
-    // }
-  } catch (e) {
-	errorHandler(e, 'get<%=h.changeCase.pascal(name)%>Async')
-  } finally {
-	  
-  }
-}
+export const get<%=h.changeCase.pascal(name)%> = createAsyncThunk(
+	'@@<%=h.changeCase.pascal(name)%>/get<%=h.changeCase.pascal(name)%>',
+	async (payload, {
+	  dispatch,
+	  getState,
+	}) => {
+		const {data}: any = await httpGet('https://server/endpoint')
+		return data;
+	},
+  );
+
+const <%=h.changeCase.pascal(name)%>Slice = createSlice({
+	name: '@@<%=h.changeCase.pascal(name)%>',
+	initialState,
+	reducers: {
+		set<%=h.changeCase.pascal(name)%>: (state, action) => {
+			state.data = action.payload
+		},
+		reset<%=h.changeCase.pascal(name)%>: () => initialState,
+	},
+	extraReducers: (builder) => {
+		builder
+		.addCase(get<%=h.changeCase.pascal(name)%>.pending, (state, action) => {
+			state.status = EDataLoadingStatus.LOADING
+		})
+		.addCase(get<%=h.changeCase.pascal(name)%>.rejected, (state, action) => {
+			state.status = EDataLoadingStatus.IDLE
+			state.error = action.error.message
+		})
+		.addCase(get<%=h.changeCase.pascal(name)%>.fulfilled, (state, action) => {
+			state.status = EDataLoadingStatus.FULFILLED
+			state.error = null
+			state.data = action.payload.data
+		})
+	},
+})
+
+// actions
+export const {set<%=h.changeCase.pascal(name)%>, reset<%=h.changeCase.pascal(name)%>} = <%=h.changeCase.camelCase(name)%>Slice.actions
+
+// reducer
+export const <%=h.changeCase.camelCase(name)%>Reducer = <%=h.changeCase.camelCase(name)%>Slice.reducer
+
+// selectors
+export const select<%=h.changeCase.pascal(name)%>Data = (state: TGlobalState) => state.<%=h.changeCase.camelCase(name)%>.data;
+export const select<%=h.changeCase.pascal(name)%>Info = (state: TGlobalState) => ({
+	status: state.<%=h.changeCase.camelCase(name)%>.status,
+	error: state.<%=h.changeCase.camelCase(name)%>.error,
+})

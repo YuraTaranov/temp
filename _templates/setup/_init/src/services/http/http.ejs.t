@@ -3,10 +3,12 @@ to: src/services/http/http.ts
 unless_exists: true
 ---
 import axios from 'axios';
-import {TGenerateOptions, IFormatResponse} from '@types';
-import storage from '../../store';
+import {TGenerateOptions, IFormatResponse, TGlobalState} from '@types';
+import {store} from '../../store';
+import {setToken} from '@reducers/globalSlice';
+import {urls} from '@constants';
 
-const baseURL = 'https://dev';
+const baseURL = urls.baseDevURL;
 const instance = axios.create();
 instance.defaults.baseURL = baseURL;
 instance.defaults.timeout = 30000;
@@ -40,7 +42,6 @@ const sendRequest = async ({
 
   try {
     const response = await instance(OPTIONS);
-
     return formatResponse(response);
   } catch (error: any) {
     if (error.response?.status === 408 || error.code === 'ECONNABORTED') {
@@ -49,18 +50,13 @@ const sendRequest = async ({
         statusText: 'Request timeout!!',
       });
     }
-    // if (error.response.data?.error === 'Unauthenticated.') {
-    //   storage.store.dispatch(changeToken(''));
-    //   //   navigate('AuthNavigator');
-    //   Alert.alert('', i18next.t('Session'));
-    // }
     throw formatResponse(error.response);
   }
 };
 
 const generateOptions = ({method, url, data, params}: TGenerateOptions) => {
-  const global: any = storage?.store?.getState().global || null;
-  const token = global.token || '';
+  const global: TGlobalState['global'] | null = store?.getState().global || null;
+  const token = global?.token || '';
   const defaultHeaders = {
     'Content-Type': 'application/json',
     'Accept-Language': 'ru',

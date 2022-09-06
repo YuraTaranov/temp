@@ -11,7 +11,7 @@ const { name } = require("./app.json");
   );
 
   execSync(
-    "yarn add axios lodash react-native-gesture-handler react-native-reanimated react-native-flipper react-native-bootsplash react-native-modal @react-native-community/async-storage i18next react-i18next react-native-vector-icons @react-navigation/native @react-navigation/native-stack @react-navigation/bottom-tabs react-native-reanimated react-native-screens react-native-safe-area-context react-native-fast-image @react-native-community/checkbox moment react-native-device-info react-native-keyboard-aware-scroll-view react-native-snap-carousel react-native-tab-view form-data uuid @react-native-community/netinfo @react-native-community/datetimepicker validator redux-flipper",
+    "yarn add axios lodash react-native-gesture-handler react-native-reanimated react-native-flipper react-native-bootsplash react-native-modal @react-native-community/async-storage i18next react-i18next react-native-vector-icons @react-navigation/native @react-navigation/native-stack @react-navigation/bottom-tabs react-native-reanimated react-native-screens react-native-safe-area-context react-native-fast-image @react-native-community/checkbox moment react-native-device-info react-native-keyboard-aware-scroll-view react-native-snap-carousel react-native-tab-view form-data uuid @react-native-community/netinfo @react-native-community/datetimepicker validator",
     { stdio: "inherit" }
   );
 
@@ -22,15 +22,15 @@ const { name } = require("./app.json");
   const select = await new Select({
     name: "store",
     message: "Select store",
-    choices: ["redux", "none"]
+    choices: ["redux toolkit", "none"]
   }).run();
 
-  if (select === "redux") {
+  if (select === "redux toolkit") {
     console.log("Redux Installation...");
-    execSync("yarn add -D redux-devtools-extension @types/react-redux", {
+    execSync("yarn add -D @types/react-redux", {
       stdio: "inherit"
     });
-    execSync("yarn add redux redux-saga react-redux redux-persist", {
+    execSync("yarn add @reduxjs/toolkit react-redux redux-persist redux-flipper", {
       stdio: "inherit"
     });
   }

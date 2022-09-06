@@ -20,6 +20,7 @@ export {
   TouchableHighlight,
   TouchableOpacity,
   TouchableWithoutFeedback,
+  Pressable,
   ImageBackground,
   View,
 } from 'react-native';

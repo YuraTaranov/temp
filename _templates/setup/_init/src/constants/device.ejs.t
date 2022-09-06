@@ -12,6 +12,5 @@ export const bottom = initialWindowMetrics?.insets?.bottom || 0;
 export const ios = Platform.OS === 'ios';
 export const android = Platform.OS === 'android';
 export const darkMode = Appearance.getColorScheme() === 'dark';
-export const longScreen = height > 736;
 export const hitSlop = {top: 8, bottom: 8, right: 8, left: 8};
 export const deviceId = getUniqueId()

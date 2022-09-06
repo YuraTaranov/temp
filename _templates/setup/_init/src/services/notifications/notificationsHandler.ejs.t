@@ -2,6 +2,8 @@
 to: src/services/notifications/notificationsHandler.ts
 unless_exists: true
 ---
+
+// need to refactor
 // import {Platform} from 'react-native';
 // import {FirebaseMessagingTypes} from '@react-native-firebase/messaging';
 // import PushNotificationIOS from '@react-native-community/push-notification-ios';

@@ -3,16 +3,22 @@ to: src/services/route.ts
 unless_exists: true
 ---
 import React from 'react';
-import {NavigationState, PartialState} from '@react-navigation/native';
+import {NavigationState} from '@react-navigation/native';
 import {StackActions} from '@react-navigation/routers';
 import {NavigationContainerRef} from '@react-navigation/core';
+import { store } from '../store';
+import {setCurrentRouteName} from '@reducers/globalSlice';
 
-export let currentRouteName: string = '';
+const dispatchRouteName = (routeName: string) => store?.dispatch(setCurrentRouteName(routeName))
+
+let currentRouteName: string | undefined = '';
 
 export const navigationRef: React.RefObject<NavigationContainerRef> =
   React.createRef();
+
 export const onStateChange: TOnStateChange = state => {
-  currentRouteName = parseRoute(state);
+  currentRouteName = navigationRef?.current?.getCurrentRoute()?.name
+  dispatchRouteName(currentRouteName || '')
 };
 
 export function navigate(name: string, params?: any) {
@@ -40,19 +46,6 @@ export function popToTop() {
   navigationRef?.current?.dispatch(StackActions.popToTop());
 }
 
-export const parseRoute: TParseRoute = initialState => {
-  const state = initialState?.routes[0]?.state || undefined;
-  const name = initialState?.routes[0]?.name || 'No Screen Name';
-  if (state) {
-    return parseRoute(state);
-  }
-
-  return name;
-};
-
 type TOnStateChange =
   | ((state: NavigationState | undefined) => void)
   | undefined;
-type TParseRoute = (
-  state: NavigationState | PartialState<NavigationState> | undefined,
-) => string;

@@ -2,14 +2,11 @@
 to: src/reducers/index.ts
 unless_exists: true
 ---
-import {combineReducers} from 'redux';
-import global from './global';
+import { combineReducers } from '@reduxjs/toolkit';
+import {global} from './globalSlice'
 // ADD IMPORT
 
-const rootReducer = combineReducers({
-  global,
-  // ADD NEW REDUCER
+export const rootReducer = combineReducers({
+	global,
+    // ADD NEW REDUCER
 });
-
-export type TAppState = ReturnType<typeof rootReducer>;
-export default rootReducer;

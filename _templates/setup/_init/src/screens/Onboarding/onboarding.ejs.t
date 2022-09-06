@@ -7,9 +7,7 @@ import {useTranslation} from '@hooks';
 import {View, Text} from '@components';
 import styles from './styles';
 
-type TProps = {};
-
-const Onboarding: React.FC<TProps> = () => {
+const Onboarding: React.FC = () => {
   const {t} = useTranslation();
 
   return (

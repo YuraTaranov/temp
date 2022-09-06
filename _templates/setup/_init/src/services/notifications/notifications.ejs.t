@@ -2,6 +2,7 @@
 to: src/services/notifications/notifications.ts
 unless_exists: true
 ---
+// need to refactor
 // import messaging, {FirebaseMessagingTypes} from '@react-native-firebase/messaging';
 // import { Alert } from 'react-native';
 // import { notificationsHandler } from './notificationsHandler';

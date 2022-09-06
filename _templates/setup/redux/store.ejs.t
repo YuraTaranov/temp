@@ -2,39 +2,28 @@
 to: src/store.tsx
 unless_exists: true
 ---
-import {createStore, applyMiddleware} from 'redux';
-import {composeWithDevTools} from 'redux-devtools-extension';
-import createSagaMiddleware from 'redux-saga';
-import reducers from './reducers';
-import rootSaga from './reducers/sagas';
-import {persistStore, persistReducer} from 'redux-persist';
+import { configureStore } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
 import AsyncStorage from '@react-native-community/async-storage';
-
-const sagaMiddleware = createSagaMiddleware();
-
-const middlewares = [sagaMiddleware];
+import { rootReducer } from "./reducers";
 
 const persistConfig = {
-  timeout: 10000,
-  key: 'root',
-  storage: AsyncStorage,
-  whitelist: ['global'],
+	timeout: 10000,
+	key: 'root',
+	storage: AsyncStorage,
+	whitelist: ['global'],
 };
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-if (__DEV__) {
-  const createFlipperDebugger = require('redux-flipper').default;
-  middlewares.push(createFlipperDebugger());
-}
+export const store = configureStore({
+  reducer: persistedReducer,
+  devTools: true,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoreActions: true
+      },
+    })
+});
 
-const persistedReducer = persistReducer(persistConfig, reducers);
-
-const storeCreation = () => {
-  const enhancer = composeWithDevTools(applyMiddleware(...middlewares));
-  const store = createStore(persistedReducer, enhancer);
-  const persistor = persistStore(store);
-
-  sagaMiddleware.run(rootSaga);
-  return {store, persistor};
-};
-
-export default storeCreation();
+export const persistor = persistStore(store);
