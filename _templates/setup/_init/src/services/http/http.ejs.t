@@ -5,7 +5,6 @@ unless_exists: true
 import axios from 'axios';
 import {TGenerateOptions, IFormatResponse, TGlobalState} from '@types';
 import {store} from '../../store';
-import {setToken} from '@reducers/globalSlice';
 import {urls} from '@constants';
 
 const baseURL = urls.baseDevURL;

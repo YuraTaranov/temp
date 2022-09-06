@@ -2,7 +2,7 @@
 to: src/screens/<%=h.changeCase.pascal(name)%>/<%=h.changeCase.pascal(name)%>.tsx
 ---
 import React from 'react'
-import { useEffect, useState, useCallback, useMemo, useTranslation } from '@hooks'
+import { useEffect, useState, useCallback, useMemo, useTranslation, useRoute } from '@hooks'
 import { View, Text, Image, TouchableOpacity } from '@components'
 import {navigate} from '@services';
 import {useDispatch, useSelector} from 'react-redux';

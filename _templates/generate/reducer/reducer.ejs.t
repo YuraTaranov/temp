@@ -14,7 +14,7 @@ const initialState: TInitialState = {
 }
 
 export const get<%=h.changeCase.pascal(name)%> = createAsyncThunk(
-	'@@<%=h.changeCase.pascal(name)%>/get<%=h.changeCase.pascal(name)%>',
+	'@@<%=h.changeCase.camelCase(name)%>/get<%=h.changeCase.pascal(name)%>',
 	async (payload, {
 	  dispatch,
 	  getState,
@@ -24,8 +24,8 @@ export const get<%=h.changeCase.pascal(name)%> = createAsyncThunk(
 	},
   );
 
-const <%=h.changeCase.pascal(name)%>Slice = createSlice({
-	name: '@@<%=h.changeCase.pascal(name)%>',
+const <%=h.changeCase.camelCase(name)%>Slice = createSlice({
+	name: '@@<%=h.changeCase.camelCase(name)%>',
 	initialState,
 	reducers: {
 		set<%=h.changeCase.pascal(name)%>: (state, action) => {
@@ -54,11 +54,7 @@ const <%=h.changeCase.pascal(name)%>Slice = createSlice({
 export const {set<%=h.changeCase.pascal(name)%>, reset<%=h.changeCase.pascal(name)%>} = <%=h.changeCase.camelCase(name)%>Slice.actions
 
 // reducer
-export const <%=h.changeCase.camelCase(name)%>Reducer = <%=h.changeCase.camelCase(name)%>Slice.reducer
+export const <%=h.changeCase.camelCase(name)%> = <%=h.changeCase.camelCase(name)%>Slice.reducer
 
 // selectors
-export const select<%=h.changeCase.pascal(name)%>Data = (state: TGlobalState) => state.<%=h.changeCase.camelCase(name)%>.data;
-export const select<%=h.changeCase.pascal(name)%>Info = (state: TGlobalState) => ({
-	status: state.<%=h.changeCase.camelCase(name)%>.status,
-	error: state.<%=h.changeCase.camelCase(name)%>.error,
-})
+export const select<%=h.changeCase.pascal(name)%> = (state: TGlobalState) => state.<%=h.changeCase.camelCase(name)%>;

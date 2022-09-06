@@ -1,5 +1,5 @@
 ---
-to: src/reducers/globalSlice.ts
+to: src/reducers/global.ts
 unless_exists: true
 ---
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"

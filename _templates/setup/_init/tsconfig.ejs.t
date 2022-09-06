@@ -1,7 +1,7 @@
 ---
 inject: true
 to: tsconfig.json
-after: baseUrl
+before: "skipLibCheck": true
 skip_if: assets
 ---
     "baseUrl": "./",
