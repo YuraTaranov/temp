@@ -3,17 +3,17 @@ to: src/services/route.ts
 unless_exists: true
 ---
 import React from 'react';
-import {NavigationState} from '@react-navigation/native';
+import {NavigationState, ParamListBase} from '@react-navigation/native';
 import {StackActions} from '@react-navigation/routers';
 import {NavigationContainerRef} from '@react-navigation/core';
 import { store } from '../store';
-import {setCurrentRouteName} from '@reducers/globalSlice';
+import {setCurrentRouteName} from '@reducers/global';
 
 const dispatchRouteName = (routeName: string) => store?.dispatch(setCurrentRouteName(routeName))
 
 let currentRouteName: string | undefined = '';
 
-export const navigationRef: React.RefObject<NavigationContainerRef> =
+export const navigationRef: React.RefObject<NavigationContainerRef<ParamListBase>> =
   React.createRef();
 
 export const onStateChange: TOnStateChange = state => {

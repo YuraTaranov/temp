@@ -35,7 +35,7 @@ const <%=h.changeCase.camelCase(name)%>Slice = createSlice({
 	},
 	extraReducers: (builder) => {
 		builder
-		.addCase(get<%=h.changeCase.pascal(name)%>.pending, (state, action) => {
+		.addCase(get<%=h.changeCase.pascal(name)%>.pending, (state) => {
 			state.status = EDataLoadingStatus.LOADING
 		})
 		.addCase(get<%=h.changeCase.pascal(name)%>.rejected, (state, action) => {

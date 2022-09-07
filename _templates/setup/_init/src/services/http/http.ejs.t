@@ -56,6 +56,7 @@ const sendRequest = async ({
 const generateOptions = ({method, url, data, params}: TGenerateOptions) => {
   const global: TGlobalState['global'] | null = store?.getState().global || null;
   const token = global?.token || '';
+  
   const defaultHeaders = {
     'Content-Type': 'application/json',
     'Accept-Language': 'ru',

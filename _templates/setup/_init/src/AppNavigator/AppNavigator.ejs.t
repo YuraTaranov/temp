@@ -11,7 +11,7 @@ import {
 } from '@screens';
 import {navigationRef, onStateChange} from '@services';
 import {useDispatch, useSelector} from 'react-redux';
-import {selectGlobal} from '@reducers/globalSlice';
+import {selectGlobal} from '@reducers/global';
 import {AuthNavigator} from './stacks/authNavigator';
 import {HomeNavigator} from './stacks/homeNavigator';
 

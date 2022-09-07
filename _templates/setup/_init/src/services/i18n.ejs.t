@@ -25,5 +25,5 @@ export default i18n.use(initReactI18next).init({
   },
   nsSeparator: false,
   keySeparator: '.',
-  debug: true, // DISABLE EIF NO NEED LOGS
+  debug: true, // disable if don't need logs
 });

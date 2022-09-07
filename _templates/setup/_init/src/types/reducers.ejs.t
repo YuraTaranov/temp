@@ -12,9 +12,11 @@ export enum EDataLoadingStatus {
 export type TGlobalState = {
 	global: {
 	  token: string;
-	  loading: boolean;
 	  firstOpenApp: boolean;
-	  currentRouteName: string;
 	  language: string;
 	},
+	additional: {
+	  loading: boolean;
+	  currentRouteName: string;
+	}
 }

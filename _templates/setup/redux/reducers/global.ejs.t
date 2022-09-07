@@ -10,9 +10,7 @@ type TInitialState = TGlobalState['global']
 
 const initialState: TInitialState = {
 	token: '',
-	loading: false,
 	firstOpenApp: true,
-	currentRouteName: '',
 	language: '',
 }
 
@@ -31,14 +29,8 @@ const globalSlice = createSlice({
 		setToken: (state, action) => {
 			state.token = action.payload
 		},
-		setLoading: (state, action) => {
-			state.loading = action.payload
-		},
 		setFirstOpenApp: (state, action) => {
 			state.firstOpenApp = action.payload
-		},
-		setCurrentRouteName: (state, action) => {
-			state.currentRouteName = action.payload
 		},
 		setLanguage: (state, action) => {
 			state.language = action.payload
@@ -48,7 +40,7 @@ const globalSlice = createSlice({
 })
 
 // actions
-export const {setToken, setLoading, setFirstOpenApp, setCurrentRouteName, setLanguage, resetGlobal} = globalSlice.actions
+export const {setToken, setFirstOpenApp, setLanguage, resetGlobal} = globalSlice.actions
 
 // reducer
 export const global = globalSlice.reducer
