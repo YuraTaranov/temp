@@ -45,12 +45,6 @@ If you have problems with git permissions try with https
 git clone --branch v2 https://github.com/YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && yarn add enquirer && node ./initialize.js
 ```
 
-ANDROID (in developing)
-
-```
-git clone --branch android https://github.com/YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && yarn add enquirer && node ./initialize.js
-```
-
 ## Splash screen
 
 [Use this library (react-native-bootsplash)](https://github.com/zoontek/react-native-bootsplash)

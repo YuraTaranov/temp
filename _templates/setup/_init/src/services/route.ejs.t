@@ -7,7 +7,7 @@ import {NavigationState, ParamListBase} from '@react-navigation/native';
 import {StackActions} from '@react-navigation/routers';
 import {NavigationContainerRef} from '@react-navigation/core';
 import { store } from '../store';
-import {setCurrentRouteName} from '@reducers/global';
+import {setCurrentRouteName} from '@reducers/additional';
 
 const dispatchRouteName = (routeName: string) => store?.dispatch(setCurrentRouteName(routeName))
 
