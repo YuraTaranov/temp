@@ -37,18 +37,5 @@ const { name } = require("./app.json");
 
   execSync(`hygen setup ${select}`, { stdio: "inherit" });
 
-  const needSentry = await new Toggle({
-    message: "Do you need sentry?",
-    enabled: "Yes",
-    disabled: "No"
-  }).run();
-
-  console.log(needSentry, "TOGGLE");
-
-  if (needSentry) {
-    execSync("yarn add @sentry/react-native", { stdio: "inherit" });
-    execSync("hygen setup sentry", { stdio: "inherit" });
-  }
-
   console.log("Installation finished!");
 })();
