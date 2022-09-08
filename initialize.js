@@ -37,5 +37,14 @@ const { name } = require("./app.json");
 
   execSync(`hygen setup ${select}`, { stdio: "inherit" });
 
+  execSync("rm -rf __test__", { stdio: "inherit" });
+  execSync("rm -rf _templates/setup", { stdio: "inherit" });
+
+  execSync("npm run format", { stdio: "inherit" });
+
+  execSync("npm uninstall enquirer", { stdio: "inherit" });
+
   console.log("Installation finished!");
+
+  execSync("rm -rf initialize.js", { stdio: "inherit" });
 })();
