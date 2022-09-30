@@ -9,3 +9,5 @@ skip_if: /ios/Podfile.lock
 
 # Other
 package-lock.json
+
+.env

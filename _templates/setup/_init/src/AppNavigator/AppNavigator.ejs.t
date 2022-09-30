@@ -5,12 +5,14 @@ unless_exists: true
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {useColorScheme} from 'react-native';
+import {darkTheme, lightTheme} from '@constants';
 import {
   Onboarding, 
   // ADD NEW SCREEN
 } from '@screens';
 import {navigationRef, onStateChange} from '@services';
-import {useDispatch, useSelector} from 'react-redux';
+import {useAppDispatch, useAppSelector} from '@hooks';
 import {selectGlobal} from '@reducers/global';
 import {AuthNavigator} from './stacks/authNavigator';
 import {HomeNavigator} from './stacks/homeNavigator';
@@ -18,11 +20,12 @@ import {HomeNavigator} from './stacks/homeNavigator';
 const RootStack = createNativeStackNavigator();
 
 const AppNavigator: React.FC = () => {
-  const dispatch = useDispatch();
-  const {token, firstOpenApp} = useSelector(selectGlobal);
+  const dispatch = useAppDispatch();
+  // const data = useAppSelector(selectData);
+  const scheme = useColorScheme();
 
   return (
-    <NavigationContainer ref={navigationRef} onStateChange={onStateChange}>
+    <NavigationContainer ref={navigationRef} onStateChange={onStateChange} theme={scheme === 'dark' ? darkTheme : lightTheme}>
       <RootStack.Navigator screenOptions={{headerShown: false, gestureEnabled: false}}>
         {firstOpenApp ? (
 		 <RootStack.Screen

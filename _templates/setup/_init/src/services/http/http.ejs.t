@@ -5,11 +5,11 @@ unless_exists: true
 import axios from 'axios';
 import {TGenerateOptions, IFormatResponse, TGlobalState} from '@types';
 import {store} from '../../store';
+import {API_URL} from 'react-native-dotenv';
 import {urls} from '@constants';
 
-const baseURL = urls.baseDevURL;
 const instance = axios.create();
-instance.defaults.baseURL = baseURL;
+instance.defaults.baseURL = API_URL;
 instance.defaults.timeout = 30000;
 
 export const httpPost = (url: string, data?: any) =>

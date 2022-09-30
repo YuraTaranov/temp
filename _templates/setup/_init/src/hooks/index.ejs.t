@@ -2,6 +2,9 @@
 to: src/hooks/index.ts
 unless_exists: true
 ---
+import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
+import {AppDispatch, RootState} from '../store';
+
 // https://reactjs.org/docs/hooks-reference.html
 export {
   useState,
@@ -36,3 +39,8 @@ export {
 export {
   useTranslation, // const { t, i18n } = useTranslation();
 } from 'react-i18next';
+
+export {useTheme} from '@react-navigation/native';
+
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

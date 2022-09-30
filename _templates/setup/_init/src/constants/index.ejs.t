@@ -8,3 +8,4 @@ export {fonts} from './fonts';
 export {Languages} from './languages';
 export {urls} from './urls';
 export {shadow} from './shadow';
+export {lightTheme, darkTheme} from './theme';
