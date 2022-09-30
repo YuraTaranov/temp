@@ -21,7 +21,7 @@ const RootStack = createNativeStackNavigator();
 
 const AppNavigator: React.FC = () => {
   const dispatch = useAppDispatch();
-  // const data = useAppSelector(selectData);
+  const {token, firstOpenApp} = useAppSelector(selectGlobal);
   const scheme = useColorScheme();
 
   return (
