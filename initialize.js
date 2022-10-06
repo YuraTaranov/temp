@@ -18,6 +18,8 @@ const { name } = require("./app.json");
 
   execSync(`hygen setup _native --appName ${name}`, { stdio: "inherit" });
 
+  execSync(`hygen setup redux`, { stdio: "inherit" });
+
   execSync("rm -rf __tests__", { stdio: "inherit" });
   execSync("rm -rf _templates/setup", { stdio: "inherit" });
 
