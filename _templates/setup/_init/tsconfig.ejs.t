@@ -17,3 +17,4 @@ skip_if: assets
       "@types": ["src/types/index"],
 	  "@httpServices": ["src/services/http/services/index"]
     },
+	"typeRoots": ["src/types"],

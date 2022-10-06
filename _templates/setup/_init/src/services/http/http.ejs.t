@@ -5,7 +5,7 @@ unless_exists: true
 import axios from 'axios';
 import {TGenerateOptions, IFormatResponse, TGlobalState} from '@types';
 import {store} from '../../store';
-import {API_URL} from 'react-native-dotenv';
+import {API_URL} from '@env';
 import {urls} from '@constants';
 
 const instance = axios.create();
