@@ -36,7 +36,7 @@ npm i -g hygen
 IOS
 
 ```
-git clone --branch v2 https://github.com/YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && yarn add enquirer && node ./initialize.js
+git clone --branch v2 https://github.com/YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && node ./initialize.js
 ```
 
 ## Splash screen
