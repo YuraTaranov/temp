@@ -2,7 +2,7 @@
 to: src/helpers/<%= name %>.ts
 ---
 const <%= name %> = (arg: void): void => {
-	return void
+	return
 }
 
 export default <%= name %>
