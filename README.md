@@ -8,7 +8,7 @@
 1. Initialize project
 
 ```
-npx react-native init YourProjectName --template react-native-template-typescript
+npx react-native init YourProjectName
 ```
 
 2. Install hygen (if you don't have it)
@@ -32,8 +32,6 @@ npm i -g hygen
 ```
 
 3. Navigate to your project folder and paste this code
-
-IOS
 
 ```
 git clone --branch v2 https://github.com/YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && node ./initialize.js
