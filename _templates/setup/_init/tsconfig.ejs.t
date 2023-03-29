@@ -1,9 +1,10 @@
 ---
 inject: true
 to: tsconfig.json
-before: skipLibCheck
+before: extends
 skip_if: assets
 ---
+  "compilerOptions": {
     "baseUrl": "./",
     "paths": {
       "@assets": ["src/assets/index"],
@@ -15,6 +16,8 @@ skip_if: assets
       "@screens": ["src/screens/index"],
       "@services": ["src/services/index"],
       "@types": ["src/types/index"],
-	  "@httpServices": ["src/services/http/services/index"]
+	  "@httpServices": ["src/services/http/services/index"],
     },
 	"typeRoots": ["src/types"],
+    "skipLibCheck": true
+  },
