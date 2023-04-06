@@ -2,9 +2,9 @@
 to: src/AppNavigator/options.ts
 unless_exists: true
 ---
-import styles from './styles';
-import {colors} from '@constants';
 import {NativeStackNavigationOptions} from '@react-navigation/native-stack';
+import {colors} from '@constants';
+import styles from './styles';
 
 export const defaultStackOptions: NativeStackNavigationOptions = {
   headerBackTitleVisible: false,
@@ -13,3 +13,4 @@ export const defaultStackOptions: NativeStackNavigationOptions = {
   headerTitleAlign: 'center',
   headerTitleStyle: styles.headerTitleStyle,
 };
+

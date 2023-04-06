@@ -13,4 +13,4 @@ export interface IFormatResponse {
   data: any;
   status: number;
   statusText: string;
-};
+}

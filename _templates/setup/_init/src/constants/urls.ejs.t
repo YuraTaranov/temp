@@ -5,4 +5,5 @@ unless_exists: true
 export const urls = {
   baseDevURL: 'https://dev.server',
   login: 'login',
-}
+};
+

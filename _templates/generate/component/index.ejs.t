@@ -1,15 +1,13 @@
 ---
 to: src/components/<%= folder %>/<%= h.changeCase.pascal(name) %>/index.tsx
 ---
-import React from 'react'
-import { useState, useCallback, useMemo, useTranslation, useAppDispatch, useAppSelector, useTheme } from '@hooks'
-import { View, Text, Image, TouchableOpacity } from '@components'
+import React from 'react';
+import {View, Text, Image, TouchableOpacity} from '@components';
+import {useState, useCallback, useMemo, useTranslation, useAppDispatch, useAppSelector, useTheme} from '@hooks';
 import {navigate} from '@services';
-import styles from './styles'
+import styles from './styles';
 
-type TProps = {
-
-}
+type TProps = {};
 
 const <%= h.changeCase.pascal(name) %>: React.FC<TProps> = ({}) => {
 	const {t} = useTranslation();

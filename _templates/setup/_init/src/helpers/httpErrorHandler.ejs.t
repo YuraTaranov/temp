@@ -5,16 +5,16 @@ unless_exists: true
 import {Alert} from 'react-native';
 
 export const errorHandler = (error: any, method?: string) => {
-	console.log('!!! REQUEST ERROR', method || 'Pass the method', error);
-	// const message = error.data?.message || '';
-    let resultString = '';
+  console.log('!!! REQUEST ERROR', method || 'Pass the method', error);
+  // const message = error.data?.message || '';
+  let resultString = '';
 
-	// if (error.status === 418) {
-	//   return Alert.alert(
-	//     '',
-	//     'Please check your internet connection or try again later',
-	//   );
-	// }
+  // if (error.status === 418) {
+  //   return Alert.alert(
+  //     '',
+  //     'Please check your internet connection or try again later',
+  //   );
+  // }
 
   const errors = error?.data?.errors || [];
   // const resultString = `${message}\n${errors.join('\n')}`;

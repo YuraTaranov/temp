@@ -7,6 +7,6 @@ import {colors, fonts} from '@constants';
 
 export default StyleSheet.create({
   container: {
-    color: colors.black_000000
+    color: colors.black_000000,
   },
 });

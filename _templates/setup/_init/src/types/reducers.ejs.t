@@ -3,20 +3,20 @@ to: src/types/reducers.ts
 unless_exists: true
 ---
 export enum EDataLoadingStatus {
-	 IDLE = 'idle',
-	 LOADING = 'loading',
-	 FULFILLED = 'fulfilled',
-	 REJECTED = 'rejected',
+  IDLE = 'idle',
+  LOADING = 'loading',
+  FULFILLED = 'fulfilled',
+  REJECTED = 'rejected',
 }
 
 export type TGlobalState = {
-	global: {
-	  token: string;
-	  firstOpenApp: boolean;
-	  language: string;
-	},
-	additional: {
-	  loading: boolean;
-	  currentRouteName: string;
-	}
-}
+  global: {
+    token: string;
+    firstOpenApp: boolean;
+    language: string;
+  };
+  additional: {
+    loading: boolean;
+    currentRouteName: string;
+  };
+};

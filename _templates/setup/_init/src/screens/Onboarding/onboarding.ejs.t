@@ -3,8 +3,8 @@ to: src/screens/Onboarding/Onboarding.tsx
 unless_exists: true
 ---
 import React from 'react';
-import {useTranslation, useTheme} from '@hooks';
 import {View, Text} from '@components';
+import {useTranslation, useTheme} from '@hooks';
 import styles from './styles';
 
 const Onboarding: React.FC = () => {
@@ -13,11 +13,10 @@ const Onboarding: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text>
-	    Welcome Screen
-	  </Text>
+      <Text>Welcome Screen</Text>
     </View>
   );
 };
 
 export default Onboarding;
+

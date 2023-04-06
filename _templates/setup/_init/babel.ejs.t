@@ -19,13 +19,13 @@ module.exports = {
           '@screens': ['./src/screens'],
           '@services': ['./src/services'],
           '@types': ['./src/types'],
-		  '@httpServices': ["./src/services/http/services"],
+          '@httpServices': ['./src/services/http/services'],
         },
         cwd: 'packagejson',
       },
     ],
     'react-native-reanimated/plugin',
-	[
+    [
       'module:react-native-dotenv',
       {
         moduleName: '@env',

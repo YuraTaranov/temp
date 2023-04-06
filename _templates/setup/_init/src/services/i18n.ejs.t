@@ -2,8 +2,8 @@
 to: src/services/i18n.ts
 unless_exists: true
 ---
-import {initReactI18next} from 'react-i18next';
 import i18n from 'i18next';
+import {initReactI18next} from 'react-i18next';
 import {Languages} from '@constants';
 
 const en = require('./localization/en.json');

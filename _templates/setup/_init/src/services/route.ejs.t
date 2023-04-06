@@ -3,26 +3,25 @@ to: src/services/route.ts
 unless_exists: true
 ---
 import React from 'react';
+import {NavigationContainerRef} from '@react-navigation/core';
 import {NavigationState, ParamListBase} from '@react-navigation/native';
 import {StackActions} from '@react-navigation/routers';
-import {NavigationContainerRef} from '@react-navigation/core';
-import { store } from '../store';
 import {setCurrentRouteName} from '@reducers/additional';
+import {store} from '../store';
 
-const dispatchRouteName = (routeName: string) => store?.dispatch(setCurrentRouteName(routeName))
+const dispatchRouteName = (routeName: string) => store?.dispatch(setCurrentRouteName(routeName));
 
 let currentRouteName: string | undefined = '';
 
-export const navigationRef: React.RefObject<NavigationContainerRef<ParamListBase>> =
-  React.createRef();
+export const navigationRef: React.RefObject<NavigationContainerRef<ParamListBase>> = React.createRef();
 
 export const onStateChange: TOnStateChange = state => {
-  currentRouteName = navigationRef?.current?.getCurrentRoute()?.name
-  dispatchRouteName(currentRouteName || '')
+  currentRouteName = navigationRef?.current?.getCurrentRoute()?.name;
+  dispatchRouteName(currentRouteName || '');
 };
 
 export function navigate(name: string, params?: any) {
-	navigationRef?.current?.navigate(name, params);
+  navigationRef?.current?.navigate(name, params);
 }
 export function goBack() {
   navigationRef?.current?.goBack();
@@ -46,6 +45,4 @@ export function popToTop() {
   navigationRef?.current?.dispatch(StackActions.popToTop());
 }
 
-type TOnStateChange =
-  | ((state: NavigationState | undefined) => void)
-  | undefined;
+type TOnStateChange = ((state: NavigationState | undefined) => void) | undefined;
