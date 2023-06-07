@@ -19,19 +19,19 @@ import {Test1RouteProp} from '@types';
 import styles from './styles';
 
 const <%= h.changeCase.pascal(name) %>: React.FC = () => {
-  const {t} = useTranslation()
+  const {t} = useTranslation();
   const {params} = useRoute<<%= h.changeCase.pascal(name) %>RouteProp>();
   const dispatch = useAppDispatch();
   // const data = useAppSelector(selectData);
   const {colors} = useTheme();
 
   return (
-	<View style={styles.container}>
-	  <Text>
-		<%= h.changeCase.pascal(name) %>Screen
-	  </Text>
-	</View>
-  )
-}
+    <View style={styles.container}>
+      <Text>
+        <%= h.changeCase.pascal(name) %>Screen
+      </Text>
+    </View>
+  );
+};
 
 export default <%= h.changeCase.pascal(name) %>;

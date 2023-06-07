@@ -10,16 +10,16 @@ import styles from './styles';
 type TProps = {};
 
 const <%= h.changeCase.pascal(name) %>: React.FC<TProps> = ({}) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   // const data = useAppSelector(selectData);
   const {colors} = useTheme();
 
   return (
-	<View style={styles.container}>
+    <View style={styles.container}>
 
-	</View>
-  )
+    </View>
+  );
 };
 
 export default <%= h.changeCase.pascal(name) %>;

@@ -1,5 +1,5 @@
 ---
-to: src/components/<%= folder %>/<%= h.changeCase.pascal(name) %>/index.tsx
+to: src/components/<%= folder %>/<%= h.changeCase.pascal(name) %>/<%= h.changeCase.pascal(name) %>.tsx
 ---
 import React from 'react';
 import {View, Text, Image, TouchableOpacity} from '@components';
@@ -10,16 +10,16 @@ import styles from './styles';
 type TProps = {};
 
 const <%= h.changeCase.pascal(name) %>: React.FC<TProps> = ({}) => {
-	const {t} = useTranslation();
-	const dispatch = useAppDispatch();
-    // const data = useAppSelector(selectData);
-	const {colors} = useTheme();
+  const {t} = useTranslation();
+  const dispatch = useAppDispatch();
+  // const data = useAppSelector(selectData);
+  const {colors} = useTheme();
 
-	return (
-		<View style={styles.container}>
+  return (
+    <View style={styles.container}>
 
-		</View>
-	)
-}
+    </View>
+  );
+};
 
 export default <%= h.changeCase.pascal(name) %>;

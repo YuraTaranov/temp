@@ -1,5 +1,5 @@
 ---
-to: src/components/typography/TextInput/index.tsx
+to: src/components/typography/TextInput/TextInput.tsx
 unless_exists: true
 ---
 import React, {forwardRef, ForwardRefRenderFunction} from 'react';

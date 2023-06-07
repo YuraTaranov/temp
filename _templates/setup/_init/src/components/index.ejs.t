@@ -36,6 +36,7 @@ export {default as Image} from 'react-native-fast-image';
 // CONTROL
 
 // DATAVIEW
+export {TodosListExample} from './dataview/TodosListExample/TodosListExample';
 
 // INPUTS
 
@@ -48,5 +49,5 @@ export {KeyboardAvoidingView} from './layout/KeyboardAvoidingView/KeyboardAvoidi
 
 // TYPOGRAPHY
 export {Icon} from './typography/Icon/Icon';
-export {default as Text} from './typography/Text';
-export {default as TextInput} from './typography/TextInput';
+export {default as Text} from './typography/Text/Text';
+export {default as TextInput} from './typography/TextInput/TextInput';

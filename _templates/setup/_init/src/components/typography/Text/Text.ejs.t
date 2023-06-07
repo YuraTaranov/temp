@@ -1,5 +1,5 @@
 ---
-to: src/components/typography/Text/index.tsx
+to: src/components/typography/Text/Text.tsx
 unless_exists: true
 ---
 import React from 'react';
