@@ -16,7 +16,7 @@ skip_if: assets
       "@screens": ["src/screens/index"],
       "@services": ["src/services/index"],
       "@types": ["src/types/index"],
-	  "@httpServices": ["src/services/http/services/index"],
+	  "@api": ["src/services/api/index"]
     },
 	"typeRoots": ["src/types"],
     "skipLibCheck": true

@@ -34,7 +34,7 @@ npm i -g hygen
 3. Navigate to your project folder and paste this code
 
 ```
-git clone --branch v2 https://github.com/YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && node ./initialize.js
+git clone --branch rtk-query https://github.com/YuraTaranov/temp.git && cp -rf ./temp/_templates ./ && cp -f ./temp/initialize.js ./ && rm -rf temp && rm -f App.tsx && node ./initialize.js
 ```
 
 ## Splash screen

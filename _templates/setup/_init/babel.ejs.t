@@ -19,7 +19,7 @@ module.exports = {
           '@screens': ['./src/screens'],
           '@services': ['./src/services'],
           '@types': ['./src/types'],
-          '@httpServices': ['./src/services/http/services'],
+          '@api': ['./src/services/api/index'],
         },
         cwd: 'packagejson',
       },
