@@ -9,6 +9,8 @@ skip_if: watchman
 	"g:component": "hygen generate component",
 	"g:screenComponent": "hygen generate screen-component",
 	"g:reducer": "hygen generate reducer",
+	"g:apiSlice": "hygen generate api-slice",
+    "g:apiSliceWithMutation": "hygen generate api-slice-with-mutation",
 	"g:helper": "hygen generate helper",
 	"yarn:clean": "watchman watch-del-all && rm -rf $TMPDIR/react-native-packager-cache-* && rm -rf $TMPDIR/metro-bundler-cache-* && rm -rf node_modules/ && yarn cache clean && yarn install && cd ios && pod deintegrate && pod cache clean --all && pod install",
 	"pod:clean": "cd ios && pod deintegrate && pod cache clean --all && pod install && cd ..",
