@@ -2,10 +2,13 @@
 to: src/store.tsx
 unless_exists: true
 ---
-import {todosSlice} from '@api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {configureStore} from '@reduxjs/toolkit';
 import {persistStore, persistReducer} from 'redux-persist';
+import {
+  // ADD NEW API SLICE
+  todosApiSlice,
+} from '@api';
 import {rootReducer} from './reducers';
 
 const persistConfig = {
@@ -24,7 +27,10 @@ export const store = configureStore({
       serializableCheck: {
         ignoreActions: true,
       },
-    }).concat(todosSlice.middleware),
+    }).concat(
+      // ADD NEW MIDDLEWARE
+      todosApiSlice.middleware,
+    ),
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

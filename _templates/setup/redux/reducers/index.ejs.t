@@ -2,8 +2,11 @@
 to: src/reducers/index.ts
 unless_exists: true
 ---
-import {todosSlice} from '@api';
 import {combineReducers} from '@reduxjs/toolkit';
+import {
+  // ADD NEW API SLICE
+  todosApiSlice,
+} from '@api';
 import {additional} from './additional';
 import {global} from './global';
 
@@ -12,6 +15,6 @@ import {global} from './global';
 export const rootReducer = combineReducers({
   global,
   additional,
-  [todosSlice.reducerPath]: todosSlice.reducer,
+  [todosApiSlice.reducerPath]: todosApiSlice.reducer,
   // ADD NEW REDUCER
 });

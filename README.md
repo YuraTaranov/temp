@@ -13,19 +13,19 @@ npx react-native init YourProjectName
 
 2. Install hygen (if you don't have it)
 
-(on mac)
+mac
 
 ```
 brew install hygen
 ```
 
-(on linux)
+linux
 
 ```
 sudo npm i -g hygen
 ```
 
-(on windows)
+windows
 
 ```
 npm i -g hygen
@@ -40,3 +40,14 @@ git clone --branch rtk-query https://github.com/YuraTaranov/temp.git && cp -rf .
 ## Splash screen
 
 [Use this library (react-native-bootsplash)](https://github.com/zoontek/react-native-bootsplash)
+
+## Api slice example
+
+You can find api slice example here:
+
+```
+./src/services/api/todosApiSliceExample
+./src/components/dataview/TodosListExample
+```
+
+Also you can generate new api slices with npm scripts (look in package.json)

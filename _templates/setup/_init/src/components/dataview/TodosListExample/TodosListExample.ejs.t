@@ -1,13 +1,13 @@
 ---
-to: src/components/dataview/TodosListExample/index.tsx
+to: src/components/dataview/TodosListExample/TodosListExample.tsx
 unless_exists: true
 ---
-import {useGetTodosQuery, useUpdateTodoMutation, useDeleteTodoMutation, useAddTodoMutation, ITodo} from '@api';
 import React from 'react';
 import {Alert, Text, TextInput, TouchableOpacity, View} from '@components';
 import {useState, useMemo, useEffect} from '@hooks';
+import {useGetTodosQuery, useUpdateTodoMutation, useDeleteTodoMutation, useAddTodoMutation, ITodo} from '@api';
 
-const TodosListExample.ejs = () => {
+const TodosListExample = () => {
   const [newTodo, setNewTodo] = useState('');
 
   const {data: todos, isLoading, isSuccess, isError, error} = useGetTodosQuery();
@@ -60,4 +60,4 @@ const TodosListExample.ejs = () => {
 
   return <View>{content}</View>;
 };
-export default TodosListExample.ejs;
+export default TodosListExample;
