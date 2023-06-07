@@ -36,7 +36,6 @@ export {default as Image} from 'react-native-fast-image';
 // CONTROL
 
 // DATAVIEW
-export {TodosListExample} from './dataview/TodosListExample/TodosListExample';
 
 // INPUTS
 
