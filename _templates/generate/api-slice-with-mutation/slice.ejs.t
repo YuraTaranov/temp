@@ -20,7 +20,7 @@ export const <%=h.changeCase.camelCase(name)%>ApiSlice = createApi({
   }),
   tagTypes: ['<%=h.changeCase.pascal(name)%>'],
   endpoints: builder => ({
-    get<%=h.changeCase.pascal(name)%>: builder.query<I<%=h.changeCase.pascal(name)%>[], void>({
+    get<%=h.changeCase.pascal(name)%>: builder.query<I<%=h.changeCase.pascal(name)%>, void>({
       query: () => '/<%=h.changeCase.camelCase(name)%>',
       providesTags: ['<%=h.changeCase.pascal(name)%>'],
     }),

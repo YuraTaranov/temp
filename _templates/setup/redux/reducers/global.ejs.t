@@ -2,8 +2,7 @@
 to: src/reducers/global.ts
 unless_exists: true
 ---
-import i18next from 'i18next';
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 import {TGlobalState} from '@types';
 
 type TInitialState = TGlobalState['global'];
@@ -13,11 +12,6 @@ const initialState: TInitialState = {
   firstOpenApp: true,
   language: '',
 };
-
-export const changeLanguage = createAsyncThunk('@@global/changeLanguage', async (payload: string, thunkAPI) => {
-  thunkAPI.dispatch(setLanguage(payload));
-  await i18next.changeLanguage(payload);
-});
 
 const globalSlice = createSlice({
   name: '@@global',

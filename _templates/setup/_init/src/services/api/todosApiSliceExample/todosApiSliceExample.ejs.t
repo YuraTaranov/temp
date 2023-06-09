@@ -33,14 +33,18 @@ export const todosApiSlice = createApi({
         body: todo,
       }),
       // Updates data in the cache after an addTodo request locally instead of sending a getTodos request
-      onQueryStarted: (newTodo, {dispatch, queryFulfilled}) => {
-        queryFulfilled.then(_data => { // _data - response from server
+      onQueryStarted: (newTodo, {dispatch, queryFulfilled, getState}) => {
+		// Here we can execute some code at the beginning of the addTodo request
+        queryFulfilled.then(_data => { 
+		  // Here we can execute the code after a successful response from the server
+		  // _data - response from server
+		  // With the updateQueryData method, we can locally update the state of another reducer (if needed)
           dispatch(
             todosApiSlice.util.updateQueryData('getTodos', undefined, prevTodos => {
               prevTodos.push(newTodo);
             }),
           );
-          // or we can store the data in a regular separate reducer
+          // or we can store the data with dispatch in a regular separate reducer
           // dispatch(setTodos(_data))
         });
       },
@@ -82,4 +86,6 @@ export const {useGetTodosQuery, useAddTodoMutation, useUpdateTodoMutation, useDe
 // import {store} from './path/to/store'
 // import { todosApiSlice } from './path/to/todosApiSlice';
 // const dispatch = store.dispatch
-// const response = await dispatch(todosApiSlice.endpoints.getTodos.initiate())
+// const getTodos = async () => {
+//   const response = await dispatch(todosApiSlice.endpoints.getTodos.initiate())
+// }
