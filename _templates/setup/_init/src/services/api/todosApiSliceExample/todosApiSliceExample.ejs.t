@@ -86,6 +86,13 @@ export const {useGetTodosQuery, useAddTodoMutation, useUpdateTodoMutation, useDe
 // import {store} from './path/to/store'
 // import { todosApiSlice } from './path/to/todosApiSlice';
 // const dispatch = store.dispatch
+// const state = store.getState();
+
+// send request
 // const getTodos = async () => {
 //   const response = await dispatch(todosApiSlice.endpoints.getTodos.initiate())
+//   return response
 // }
+
+// get data from the store
+// state.todosApi.queries['getTodos(undefined)'].data
