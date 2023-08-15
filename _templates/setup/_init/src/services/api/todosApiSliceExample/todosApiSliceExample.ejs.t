@@ -44,8 +44,8 @@ export const todosApiSlice = createApi({
               prevTodos.push(newTodo);
             }),
           );
-          // or we can store the data with dispatch in a regular separate reducer
-          // dispatch(setTodos(_data))
+          // or we can store the data with dispatch in a regular separate reducer, like example token
+          // dispatch(setToken(_data))
         });
       },
     }),
@@ -96,3 +96,14 @@ export const {useGetTodosQuery, useAddTodoMutation, useUpdateTodoMutation, useDe
 
 // get data from the store
 // state.todosApi.queries['getTodos(undefined)'].data
+
+// Example of a combination of several queries
+// import {useGetUsersQuery, useGetPostsQuery, useGetProductsQuery} from '@api';
+
+// export const useInitial = () => {
+//  const users = useGetUsersQuery();
+//  const products = useGetProductsQuery();
+//  const posts = useGetPostsQuery();
+
+//  return {users, products, posts};
+// };
