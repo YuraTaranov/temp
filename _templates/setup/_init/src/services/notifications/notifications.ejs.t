@@ -3,8 +3,8 @@ to: src/services/notifications/notifications.ts
 unless_exists: true
 ---
 import messaging, {FirebaseMessagingTypes} from '@react-native-firebase/messaging';
-import {notificationsHandler} from './notificationsHandler';
 import {store} from '../../store'
+import {notificationsHandler} from './notificationsHandler';
 
 type TNotificationService = {
   init: () => Promise<void>;
@@ -22,7 +22,8 @@ export const notificationService: TNotificationService = {
 
       try {
         // TODO: send token to server
-		// const response = await store.dispatch(apiSlice.endpoints.sendToken.initiate({fcmToken}))      } catch (error) {
+		// const response = await store.dispatch(apiSlice.endpoints.sendToken.initiate({fcmToken}))      
+	  } catch (error) {
         __DEV__ && console.log('--- send fcm token error', error);
       }
 
