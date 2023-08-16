@@ -30,7 +30,7 @@ const AppNavigator: React.FC = () => {
       theme={scheme === 'dark' ? darkTheme : lightTheme}>
       <RootStack.Navigator screenOptions={{headerShown: false, gestureEnabled: false}}>
         {firstOpenApp ? (
-          <RootStack.Screen name={'Onboarding'} component={Onboarding} options={{headerShown: false}} />
+          <RootStack.Screen name='Onboarding' component={Onboarding} options={{headerShown: false}} />
         ) : token ? (
           <RootStack.Screen name="HomeNavigator" component={HomeNavigator} />
         ) : (
