@@ -10,7 +10,11 @@ import {useGetTodosQuery, useUpdateTodoMutation, useDeleteTodoMutation, useAddTo
 const TodosListExample = () => {
   const [newTodo, setNewTodo] = useState('');
 
-  const {data: todos, isLoading, isSuccess, isError, error} = useGetTodosQuery();
+  const {data: todos, isLoading, isSuccess, isError, error, } = useGetTodosQuery(undefined, { // optional props
+	pollingInterval: 2000, // makes request every 2 seconds
+	refetchOnReconnect: true, // network connection
+	refetchOnMountOrArgChange: true, // boolean or number (seconds)
+  });
 
   const [addTodo, {isSuccess: isTodoAddedSuccessfully}] = useAddTodoMutation();
   const [updateTodo] = useUpdateTodoMutation();
