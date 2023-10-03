@@ -15,7 +15,7 @@ import {
   useTheme,
 } from '@hooks';
 import {navigate} from '@services';
-import {Test1RouteProp} from '@types';
+import {<%= h.changeCase.pascal(name) %>RouteProp} from '@types';
 import styles from './styles';
 
 const <%= h.changeCase.pascal(name) %>: React.FC = () => {
