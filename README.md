@@ -16,6 +16,7 @@ npx react-native init YourProjectName
 (on mac)
 
 ```
+brew tap jondot/tap
 brew install hygen
 ```
 
