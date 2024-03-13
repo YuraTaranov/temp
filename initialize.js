@@ -5,7 +5,7 @@ const { name } = require("./app.json");
   execSync("git init", { stdio: "inherit" });
 
   execSync(
-    "yarn add -D @trivago/prettier-plugin-sort-imports babel-plugin-module-resolver @types/react-native-vector-icons @types/react-native-snap-carousel @types/uuid @types/validator",
+    "yarn add -D @trivago/prettier-plugin-sort-imports babel-plugin-module-resolver @types/react-native-vector-icons @types/react-native-snap-carousel @types/uuid @types/validator metro-react-native-babel-preset",
     { stdio: "inherit" }
   );
 
